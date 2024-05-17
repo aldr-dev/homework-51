@@ -7,9 +7,11 @@ const App = () => {
 
     const generateRandomNumbers = (): void => {
         const arrayNumbers:number[] = [];
-        for (let i = 0; i < numbers.length; i++) {
+        while (arrayNumbers.length < numbers.length) {
             const number = Math.floor(Math.random() * (36 - 5 + 1)) + 5;
-            arrayNumbers.push(number);
+            if (!arrayNumbers.includes(number)) {
+                arrayNumbers.push(number);
+            }
         }
         arrayNumbers.sort((a, b) => a - b);
         setNumbers(arrayNumbers);
